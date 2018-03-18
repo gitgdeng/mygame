@@ -1,0 +1,23 @@
+'''
+- python3
+python3 --version
+- pip3
+pip3 --version
+- pygame
+# on the book
+brew install hg sdl sdl_image sdl_ttf
+brew install sdl_mixer portmidi
+pip3 install --user hg+http://bitbucket.org/pygame/pygame
+# on the web
+https://www.pygame.org/wiki/GettingStarted#Pygame%20Installation
+python3 -m virtualenv anenv
+. ./anenv/bin/activate
+python -m pip install venvdotapp
+venvdotapp
+python -m pip install pygame
+- setup virtualenv
+https://www.jianshu.com/p/d37662e6ef34
+pip3 install virtualenv
+virtualenv --version
+
+'''
