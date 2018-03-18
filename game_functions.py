@@ -2,11 +2,40 @@ import sys
 
 import pygame
 
-def check_events():
+def check_keydown_events(event, ship):
+	if event.key == pygame.K_RIGHT:
+		ship.moving_right= True
+		print("move right.. key down")
+	elif event.key == pygame.K_LEFT:
+		ship.moving_left = True	
+
+def check_keyup_events(event, ship):	
+	if event.key == pygame.K_RIGHT:
+		ship.moving_right = False	
+		print("move right.. key up")
+	elif event.key == pygame.K_LEFT:
+		ship.moving_left = False	
+		
+def check_events(ship):
 	""" 响应案件和鼠标事件 """
 	for event in pygame.event.get():
 		if event.type == pygame.QUIT:
 			sys.exit()
+
+		elif event.type == pygame.KEYDOWN:
+			check_keydown_events(event, ship)
+			# if event.key == pygame.K_RIGHT:
+			# 	ship.moving_right= True
+			# 	print("move right.. key down")
+			# elif event.key == pygame.K_LEFT:
+			# 	ship.moving_left = True	
+		elif event.type == pygame.KEYUP:
+			check_keyup_events(event, ship)
+			# if event.key == pygame.K_RIGHT:
+			# 	ship.moving_right = False	
+			# 	print("move right.. key up")
+			# elif event.key == pygame.K_LEFT:
+			# 	ship.moving_left = False	
 
 def update_screen(ai_settings, screen, ship):
 	""" 更新屏幕上的图像，并切换到新屏幕 """
@@ -16,4 +45,5 @@ def update_screen(ai_settings, screen, ship):
 
 	# 让最近绘制的屏幕可见
 	pygame.display.flip()
-	
+
+
