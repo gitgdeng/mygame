@@ -4,7 +4,7 @@ from pygame.sprite import Group
 
 from settings import Settings
 from ship import Ship
-from alien import Alien
+# from alien import Alien
 import game_functions as gf
 
 def run_game():
@@ -22,9 +22,11 @@ def run_game():
 
     #创建一个勇于存储子弹的编组
     bullets = Group()
+    aliens = Group()
 
-    #创建一个外星人
-    alien = Alien(ai_settings, screen)
+    #创建外星人群
+    gf.create_fleet(ai_settings, screen, ship, aliens)
+    #alien = Alien(ai_settings, screen)
 
     # # 设置背景颜色
     # bg_color = (230, 230, 230)
@@ -42,7 +44,7 @@ def run_game():
         gf.update_bullets(bullets)
 
         # 每次循环都重回屏幕
-        gf.update_screen(ai_settings, screen, ship, alien, bullets)
+        gf.update_screen(ai_settings, screen, ship, aliens, bullets)
 
 run_game()                
 
