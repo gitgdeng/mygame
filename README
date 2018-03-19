@@ -19,5 +19,6 @@ python -m pip install pygame
 https://www.jianshu.com/p/d37662e6ef34
 pip3 install virtualenv
 virtualenv --version
-
+- shape
+http://pixabay.com/
 '''

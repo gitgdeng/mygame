@@ -1,8 +1,10 @@
 import sys
 import pygame
+from pygame.sprite import Group
 
 from settings import Settings
 from ship import Ship
+from alien import Alien
 import game_functions as gf
 
 def run_game():
@@ -18,18 +20,29 @@ def run_game():
     # 创建一艘飞船
     ship = Ship(ai_settings, screen)
 
-    # 设置背景颜色
-    bg_color = (230, 230, 230)
+    #创建一个勇于存储子弹的编组
+    bullets = Group()
+
+    #创建一个外星人
+    alien = Alien(ai_settings, screen)
+
+    # # 设置背景颜色
+    # bg_color = (230, 230, 230)
 
     # 开始游戏主循环
     while True:
         # 监视键盘和鼠标事件
-        gf.check_events(ship)
+        gf.check_events(ai_settings, screen, ship, bullets)
         
         ship.update()
 
+        bullets.update()
+
+        # 删除已消失的子弹
+        gf.update_bullets(bullets)
+
         # 每次循环都重回屏幕
-        gf.update_screen(ai_settings, screen, ship)
+        gf.update_screen(ai_settings, screen, ship, alien, bullets)
 
 run_game()                
 
