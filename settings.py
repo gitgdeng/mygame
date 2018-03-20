@@ -6,17 +6,17 @@ class Settings():
 		# 屏幕设置
 		self.screen_width = 800
 		self.screen_height = 600
-		self.bg_color = (120, 120, 230)
+		self.bg_color = (230, 230, 230)
 
 		# 飞船的设置
-		self.ship_speed_factor = 3.0
+		self.ship_speed_factor = 5.0
 
 		# 子弹设置
-		self.bullet_speed_factor = 2
-		self.bullet_width = 3
+		self.bullet_speed_factor = 30
+		self.bullet_width = 300
 		self.bullet_height = 15
 		self.bullet_color = 60,60,60
-		self.bullet_allowed = 3
+		self.bullet_allowed = 300
 
 		# 外星人设置
 		self.alien_speed_factor = 1
